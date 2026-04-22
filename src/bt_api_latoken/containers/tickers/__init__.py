@@ -34,7 +34,7 @@ class LatokenTickerData(TickerData):
         self.server_time: float | None = None
         self.has_been_init_data = False
 
-    def init_data(self) -> "LatokenTickerData":
+    def init_data(self) -> LatokenTickerData:
         if not self.has_been_json_encoded:
             self.ticker_data = (
                 json.loads(self.ticker_info) if isinstance(self.ticker_info, str) else {}

@@ -5,10 +5,10 @@ import hmac
 from typing import Any
 from urllib.parse import urlencode
 
-from bt_api_base.feeds.feed import Feed
-from bt_api_base.feeds.capability import Capability
 from bt_api_base.containers.requestdatas.request_data import RequestData
-from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_string
+from bt_api_base.feeds.capability import Capability
+from bt_api_base.feeds.feed import Feed
+
 from bt_api_latoken.exchange_data import LatokenExchangeDataSpot
 
 

@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from bt_api_base.containers.requestdatas.request_data import RequestData
-from bt_api_latoken.exchange_data import LatokenExchangeDataSpot
 from bt_api_latoken.feeds.live_latoken.request_base import LatokenRequestData
 
 
