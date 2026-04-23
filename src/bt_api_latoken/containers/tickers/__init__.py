@@ -36,9 +36,7 @@ class LatokenTickerData(TickerData):
 
     def init_data(self) -> LatokenTickerData:
         if not self.has_been_json_encoded:
-            self.ticker_data = (
-                json.loads(self.ticker_info) if isinstance(self.ticker_info, str) else {}
-            )
+            self.ticker_data = json.loads(self.ticker_info) if isinstance(self.ticker_info, str) else {}
             self.has_been_json_encoded = True
         if self.has_been_init_data:
             return self
@@ -53,9 +51,7 @@ class LatokenTickerData(TickerData):
             self.low = from_dict_get_float(payload, "low")
             self.volume = from_dict_get_float(payload, "volume")
             timestamp = payload.get("timestamp")
-            self.server_time = (
-                float(timestamp) / 1000 if timestamp is not None else self.local_update_time
-            )
+            self.server_time = float(timestamp) / 1000 if timestamp is not None else self.local_update_time
 
         self.has_been_init_data = True
         return self

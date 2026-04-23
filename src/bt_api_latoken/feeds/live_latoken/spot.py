@@ -43,16 +43,12 @@ class LatokenRequestDataSpot(LatokenRequestData):
         path, params, extra = self._get_exchange_info(extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
 
-    def get_deals(
-        self, symbol, count=20, start_time=None, end_time=None, extra_data=None, **kwargs
-    ):
+    def get_deals(self, symbol, count=20, start_time=None, end_time=None, extra_data=None, **kwargs):
         del count, start_time, end_time
         path, params, extra = self._get_deals(symbol, extra_data, **kwargs)
         return self.request(path, params, extra_data=extra)
 
-    async def async_get_deals(
-        self, symbol, count=20, start_time=None, end_time=None, extra_data=None, **kwargs
-    ):
+    async def async_get_deals(self, symbol, count=20, start_time=None, end_time=None, extra_data=None, **kwargs):
         del count, start_time, end_time
         path, params, extra = self._get_deals(symbol, extra_data, **kwargs)
         return await self.async_request(path, params, extra_data=extra)
@@ -85,9 +81,7 @@ class LatokenRequestDataSpot(LatokenRequestData):
     ):
         del post_only, client_order_id
         side = "buy" if str(offset).upper() in {"BUY", "OPEN"} else "sell"
-        path, body, extra = self._make_order(
-            symbol, side, order_type, volume, price, extra_data, **kwargs
-        )
+        path, body, extra = self._make_order(symbol, side, order_type, volume, price, extra_data, **kwargs)
         return self.request(path, body=body, extra_data=extra)
 
     async def async_make_order(
@@ -104,9 +98,7 @@ class LatokenRequestDataSpot(LatokenRequestData):
     ):
         del post_only, client_order_id
         side = "buy" if str(offset).upper() in {"BUY", "OPEN"} else "sell"
-        path, body, extra = self._make_order(
-            symbol, side, order_type, volume, price, extra_data, **kwargs
-        )
+        path, body, extra = self._make_order(symbol, side, order_type, volume, price, extra_data, **kwargs)
         return await self.async_request(path, body=body, extra_data=extra)
 
     def cancel_order(self, symbol, order_id, extra_data=None, **kwargs):
